@@ -11,16 +11,16 @@ class GraphQLClient:
             "Content-Type": "application/json"
         }
     def request(self,
-    query: str) -> dict[dict, Any]:
+    query: str) -> dict[str, Any]:
         res =requests.post(self.link, json={"query": query}, headers=self.header)
         return res.json()
     def request_id(self,
     id: int,
-    *args: str) -> dict[dict, Any]:
-        fields = " ".join(args) if args else "id"
+    *args: str) -> dict[str, Any]:
+        scopes = " ".join(args) if args else "id"
         query = """{animes(ids: "%s"){
                 %s
                 }
-            }""" % (id, fields)
+            }""" % (id, scopes)
         res = requests.post(self.link, json={"query": query}, headers=self.header)
         return res.json()

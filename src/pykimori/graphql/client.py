@@ -1,11 +1,13 @@
 import requests
 from typing import Any
-
+from pykimori.exceptions import NoAgentError
 
 class GraphQLClient:
     def __init__(self,
         agent: str):
         self.link = "https://shikimori.io/api/graphql"
+        if not agent:
+            raise NoAgentError
         self.header = {
             "User-Agent": agent,
             "Content-Type": "application/json"

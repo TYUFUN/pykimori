@@ -1,5 +1,5 @@
-from pykimori.graphql import client
-app = client.GraphQLClient("pykimori")
+from pykimori.graphql import GraphQLClient
+app = GraphQLClient("pykimori")
 query = """{
   animes(search: "naruto", limit: 1) {
     id
@@ -9,6 +9,6 @@ query = """{
   }
 }
 """
-answer = app.request_id(20, "id", "name", "russian")
+answer = app.request_name("animes", "naruto", 1, "malId", "name", "russian", "japanese", "licenseNameRu")
 print(answer)
     

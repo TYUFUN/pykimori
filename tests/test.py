@@ -9,6 +9,9 @@ query = """{
   }
 }
 """
-answer = app.request_name("animes", "naruto", 1, "malId", "name", "russian", "japanese", "licenseNameRu")
+answer = app.request_name("animes", "naruto", ["id", "rating", "score", "status", "episodes"])
 print(answer)
+# for list in answer:
+#   for key, data in list.items():
+#     print(key, data, " is type: ", type(data))
     

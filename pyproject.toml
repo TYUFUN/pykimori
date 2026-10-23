@@ -17,3 +17,9 @@ pykimori = "pykimori:main"
 [build-system]
 requires = ["uv_build>=0.12.18,<0.13.0"]
 build-backend = "uv_build"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py", "graphlql.py", "graphql.py"]
+pythonpath = ["src"]
+
